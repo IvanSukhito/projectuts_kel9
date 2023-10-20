@@ -99,6 +99,14 @@
                         <th>Nama</th>
                         <th>Position</th>
                     </tr>
+                    <tbody>
+                        <tr>
+                            <td><img src="foto.jpeg"/></td>
+                            <td>712382382</td>
+                            <td>Ivan Sukhito</td>
+                            <td>Boss</td>
+                        </tr>
+                    </tbody>
                 </thead>
             </table>
         </div>
