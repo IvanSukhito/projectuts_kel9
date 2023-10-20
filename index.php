@@ -18,7 +18,7 @@
               DATA KARYAWAN
             </div>
             <div class="card-body">
-              <a href="tambah-siswa.php" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
+              <a href="form-add-employee.php" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
               <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>
@@ -45,8 +45,8 @@
                       <td><?php echo $row['nama'] ?></td>
                       <td><?php echo $row['position'] ?></td>
                       <td class="text-center">
-                        <a href="edit-siswa.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="hapus-siswa.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                        <a href="#" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="#" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
 
