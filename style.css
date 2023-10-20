@@ -262,12 +262,6 @@ tfoot td {
   padding: 15px;
 }
 
-.table--container button {
-  color: green;
-  background: none;
-  cursor: pointer;
-}
-
 td img {
   width: 80px;
   height: 80px;
