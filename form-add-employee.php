@@ -46,7 +46,7 @@
     <select id="status_kerja" class="form-select" name='status_kerja'>
       <option selected>Pilih...</option>
       <option value="Tetap">Tetap</option>
-      <option value="TidakTetap">TidakTetap</option>
+      <option value="Tidak Tetap">Tidak Tetap</option>
     </select>
   </div>
 
