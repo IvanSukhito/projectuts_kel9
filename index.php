@@ -47,11 +47,9 @@
                       <td><?php echo $row['nama'] ?></td>
                       <td><?php echo $row['position'] ?></td>
                       <td class="text-center">
-                        <a href="/form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <form method="post" action="logicdelete.php" onSubmit="return hapus();">
-                          <input type="hidden" name="nik" value="<?= $row['nik'] ?>">
-                          <button type="submit" name="delete" class="btn btn-sm btn-danger">HAPUS</button>
-                        </form>
+                        <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
+                        <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
                       </td>
                   </tr>
 

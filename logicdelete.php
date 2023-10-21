@@ -2,8 +2,8 @@
 
 include 'koneksi.php';
 
-if(isset($_POST['delete'])) {
-  $nik = $_POST['nik'];
+if(isset($_GET['nik'])) {
+  $nik = $_GET['nik'];
 
   $sSQL   = "DELETE FROM performance WHERE nik='$nik'";
   $result = mysqli_query($connection, $sSQL);
