@@ -7,7 +7,7 @@ if(isset($_GET['nik'])) {
 
   $sSQL   = "DELETE FROM performance WHERE nik='$nik'";
   $result = mysqli_query($connection, $sSQL);
-  if ($result) header("location:index.php");
+  if ($result) header("location:home.php");
 } else {
   die("Akses Dilarang");
 }

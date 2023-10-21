@@ -43,7 +43,7 @@
             <i class="fa-solid fa-search"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <img src="profile.png" />
+          <img src="admin/image/profile.png" />
         </div>
       </div>
       <div class="database--container">
@@ -140,24 +140,60 @@
         <div class="table--container">
             <table>
                 <thead>
-                    <tr>    
+                    <tr>
+                      <th>No</th>
                         <th>Foto</th>
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Position</th>
+                        <!-- <th>Aksi</th> -->
                     </tr>
                     <tbody>
-                        <tr>
-                            <td><img src="foto.jpeg"/></td>
-                            <td>712382382</td>
-                            <td>Ivan Sukhito</td>
-                            <td>Boss</td>
-                        </tr>
+                    <?php 
+                      include('koneksi.php');
+                      $no = 1;
+                      $query = mysqli_query($connection,"SELECT * FROM performance");
+                      while($row = mysqli_fetch_array($query)){
+                  ?>
+
+                  <tr>
+                      <td><?php echo $no++ ?></td>
+                      <td>
+                        <img src="admin/image/<?php echo $row['foto'] ?>" width="100px">
+                      </td>
+                      <td><?php echo $row['nik'] ?></td>
+                      <td><?php echo $row['nama'] ?></td>
+                      <td><?php echo $row['position'] ?></td>
+                      <!-- <td class="text-center">
+                        <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
+                        <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
+                      </td> -->
+                  </tr>
+
+                <?php } ?>
+                </tbody>
                     </tbody>
                 </thead>
             </table>
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready( function () {
+          $('#myTable').DataTable();
+      } );
+    </script>
+    <script>
+      function hapus(){
+          if(confirm('Are you sure want to delete?'))
+          return true;
+          else 
+          return false;
+      }
+    </script>
   </body>
 </html>

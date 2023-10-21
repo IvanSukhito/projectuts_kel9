@@ -113,8 +113,55 @@
     <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
     <button type="reset" class="btn btn-info" >Clear</button>
 </div>
-
 </form>
+<div class="table--container1">
+            <table>
+                <thead>
+                    <tr>
+                      <th>No</th>
+                        <th>Foto</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <!-- <th>Status Kerja</th> -->
+                        <th>Position</th>
+                        <!-- <th>Total</th>
+                        <th>Grade</th> -->
+                        <th>Aksi</th>
+                    </tr>
+                    <tbody>
+                    <?php 
+                      include('koneksi.php');
+                      $no = 1;
+                      $query = mysqli_query($connection,"SELECT * FROM performance");
+                      while($row = mysqli_fetch_array($query)){
+                  ?>
+
+                  <tr>
+                      <td><?php echo $no++ ?></td>
+                      <td>
+                        <img src="admin/image/<?php echo $row['foto'] ?>" width="100px">
+                      </td>
+                      <td><?php echo $row['nik'] ?></td>
+                      <td><?php echo $row['nama'] ?></td>
+                      <!-- <td>Tetap<td> -->
+                      <td><?php echo $row['position'] ?></td>
+                      <!-- <td>Total</td>
+                      <td>Grade</td> -->
+                      <td class="text-center">
+                        <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
+                        <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
+                      </td>
+                  </tr>
+
+                <?php } ?>
+                </tbody>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+
+
 
 </div>
 </body>
