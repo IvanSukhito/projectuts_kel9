@@ -36,7 +36,7 @@
     <div class="main--content">
       <div class="header--wrapper">
         <div class="header--title">
-          <h2>Healty Food</h2>
+          <h2>Healthy Food</h2>
         </div>
         <div class="user--info">
           <div class="search--box">
@@ -53,13 +53,55 @@
             <div class="card--header">
               <div class="amount">
                 <span class="title"> Jumlah Karyawan </span>
-                <span class="current--date">01-01-2003</span>
+                <span class="current--date">
+                  <?php 
+                    $currentDate = date("d-m-Y");
+                    echo $currentDate;
+                  ?>
+                </span>
               </div>
               <i class="fas fa-user-friends"></i>
             </div>
-            <span class="tetap">Tetap <span class="titik1">:</span> </span>
-            <span class="tetap">Tidak Tetap <span class="titik">:</span> </span>
-          </div>
+            <span class="tetap">Tetap 
+              <span class="titik1">:
+                <span> 
+                  <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE status_kerja = 'Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
+                </span>
+            </span>
+          </span>
+          <span class="tetap">Tidak Tetap <span class="titik">:
+              <span>
+              <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE status_kerja = 'Tidak Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
+              </span>
+            </span> 
+          </span>
+        </div>
 
           <div class="database--card">
             <div class="card--header">
@@ -78,7 +120,12 @@
             <div class="card--header">
               <div class="amount">
                 <span class="title">Hasil Performance Karyawan Tidak Cukup </span>
-                <span class="current--date">Tahun: 2023</span>
+                <span class="current--date">Tahun: 
+                <?php 
+                    $currentYear = date("Y");
+                    echo $currentYear;
+                  ?>
+                </span>
               </div>
             </div>
             <span class="tetap">A<span class="titik1">:</span></span>
