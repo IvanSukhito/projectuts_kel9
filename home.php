@@ -19,13 +19,13 @@
       <div class="logo"></div>
       <ul class="menu">
         <li class="active">
-          <a href="#">
+          <a href="home.php">
             <i class="fas fa-home"></i>
             <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="form-add-employee.php">
             <i class="fas fa-database"></i>
             <span>Performance</span>
           </a>
@@ -93,7 +93,7 @@
         <div class="table--container">
             <table>
                 <thead>
-                    <tr>
+                    <tr>    
                         <th>Foto</th>
                         <th>NIK</th>
                         <th>Nama</th>
