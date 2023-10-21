@@ -25,7 +25,7 @@ $data = mysqli_fetch_array($query);
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     </script>
-    <title>Document</title>
+     <title>FORM EDIT KARYAWAN</title>
 </head>
 <body>
   <div class="container card mt-5">
