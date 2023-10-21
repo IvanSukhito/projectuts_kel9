@@ -90,8 +90,8 @@ $data = mysqli_fetch_assoc($query);
 
 <div class="col-12" >
     
-    <label for="inputtanggal_penelian" class="form-label">Foto</label>
-    <input type="file" name="foto" class="form-control" id="inputtgl_penilaian" required>
+    <label for="Foto" class="form-label">Foto</label>
+    <img src="admin/image/<?php echo $data['foto'] ?>" width="100px">
   </div>
 
 
