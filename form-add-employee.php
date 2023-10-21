@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     </script>
 
-      <title>Form Tambah Karyawan</title>
+      <title>Form Add Karyawan</title>
 
 </head>
 <body>
