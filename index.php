@@ -40,13 +40,18 @@
 
                   <tr>
                       <td><?php echo $no++ ?></td>
-                      <td><img src="admin/image/<?php echo $foto;?>"></td>
+                      <td>
+                        <img src="admin/image/<?php echo $row['foto'] ?>" width="100px">
+                      </td>
                       <td><?php echo $row['nik'] ?></td>
                       <td><?php echo $row['nama'] ?></td>
                       <td><?php echo $row['position'] ?></td>
                       <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="#" class="btn btn-sm btn-danger">HAPUS</a>
+                        <a href="/form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <form method="post" action="logicdelete.php" onSubmit="return hapus();">
+                          <input type="hidden" name="nik" value="<?= $row['nik'] ?>">
+                          <button type="submit" name="delete" class="btn btn-sm btn-danger">HAPUS</button>
+                        </form>
                       </td>
                   </tr>
 
@@ -65,6 +70,14 @@
       $(document).ready( function () {
           $('#myTable').DataTable();
       } );
+    </script>
+    <script>
+      function hapus(){
+          if(confirm('Are you sure want to delete?'))
+          return true;
+          else 
+          return false;
+      }
     </script>
   </body>
 </html>
