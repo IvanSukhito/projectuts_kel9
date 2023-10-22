@@ -100,46 +100,10 @@ $data = mysqli_fetch_assoc($query);
 <div class="col-12 mt-5 mb-5">
     <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
 </div>
-<thead>
-                    <tr>
-                      <th>No</th>
-                        <th>Foto</th>
-                        <th>NIK</th>
-                        <th>Nama</th>
-                        <th>Position</th>
-                        <th>Aksi</th>
-                    </tr>
-                    <tbody>
-                    <?php 
-                      include('koneksi.php');
-                      $no = 1;
-                      $query = mysqli_query($connection,"SELECT * FROM performance");
-                      while($row = mysqli_fetch_array($query)){
-                  ?>
 
-                  <tr>
-                      <td><?php echo $no++ ?></td>
-                      <td>
-                        <img src="admin/image/<?php echo $row['foto'] ?>" width="100px">
-                      </td>
-                      <td><?php echo $row['nik'] ?></td>
-                      <td><?php echo $row['nama'] ?></td>
-                      <td><?php echo $row['position'] ?></td>
-                      <td class="text-center">
-                        <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
-                        <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
-                      </td>
-                  </tr>
+  </form>
 
-                <?php } ?>
-                </tbody>
-                    </tbody>
-                </thead>
-
-</form>
-
-</div>
+  </div>
 </body>
 
 <script>
