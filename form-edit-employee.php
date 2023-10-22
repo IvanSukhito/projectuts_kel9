@@ -104,10 +104,16 @@ $data = mysqli_fetch_array($query);
     <div class="col-md-3 mt-5" id="inputTotal">
     <input type="hidden" value="<?php echo $data['total'] ?>" id="getTotal">
     </div>
-
+    <div class="col-12 mt-5" >
+    
+    <label for="Foto" class="form-label">Old Foto</label>
+    <input type="text" name="foto_old" class="form-control" id="foto_old" value="<?php echo $data['foto'] ?>">
+    
+    <img src="admin/image/<?php echo $data['foto'] ?>" class="form-control" style="width:25%;"  >
+  </div>
     <div class="col-12" >
       <label for="inputtanggal_penelian" class="form-label">Foto</label>
-      <input type="file" name="foto" class="form-control" id="inputtgl_penilaian">
+      <input type="file" name="foto" class="form-control" id="inputtgl_penilaian" accept="image/png, image/gif, image/jpeg">
     </div>
     <div class="col-12 mt-5 mb-5">
       <button type="submit" name ="submit" class="btn btn-primary">Submit</button>

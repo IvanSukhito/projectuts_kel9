@@ -117,7 +117,7 @@
 <div class="col-12" >
     
     <label for="inputtanggal_penelian" class="form-label">Foto</label>
-    <input type="file" name="foto" class="form-control" id="inputtgl_penilaian" required>
+    <input type="file" name="foto" class="form-control" id="inputtgl_penilaian" accept="image/png, image/gif, image/jpeg" required>
   </div>
 
 

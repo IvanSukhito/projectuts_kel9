@@ -122,9 +122,6 @@ $data = mysqli_fetch_assoc($query);
     <img src="admin/image/<?php echo $data['foto'] ?>" width="100px">
   </div>
 
-
-
-
     <div class="col-12 mt-5 mb-5 mt-5">
         <a href="form-add-employee.php"><button type="button" class="btn btn-danger">Cancel</button></a>
     </div>
