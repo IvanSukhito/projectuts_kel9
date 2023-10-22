@@ -93,13 +93,11 @@ $data = mysqli_fetch_array($query);
         <label for="inputZip" class="form-label">Management Time</label>
         <input type="text" class="form-control" id="inputManageTime" name='management_time' value="<?php echo $data['management_time'] ?>" required>
     </div>
-    <div class="col-md-2 mt-5" >
-    <label for="total" class="form-label">Total</label>
-    <input type="text" name="total" class="form-control bg-light" id="total" readonly>
+    <div class="col-md-3 mt-5" id="inputGrade">
+    <input type="hidden" value="<?php echo $data['grade'] ?>" id="getGrade">
   </div>
-    <div class="col-md-2 mt-5">
-        <label for="inputZip" class="form-label">Grade</label>
-        <input type="text" class="form-control bg-light" id="inputGrade" name='grade' readonly>
+    <div class="col-md-3 mt-5" id="inputTotal">
+    <input type="hidden" value="<?php echo $data['total'] ?>" id="getTotal">
     </div>
 
     <div class="col-12" >
@@ -115,6 +113,7 @@ $data = mysqli_fetch_array($query);
 </div>
 </body>
 
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 <script>
 function simpan(){
     if(confirm('Are you sure want to update?'))
@@ -122,5 +121,86 @@ function simpan(){
     else 
     return false;
 }
+function total(x, y , z)
+{
+  var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
+    return total;
+}
+
+function grade(x,y,z){
+    var grade = total(x,y,z);
+    if (grade >= 80 ) {
+        return 'A';
+    } else if (grade >= 60) {
+        return 'B';
+    } else if (grade >= 40) {
+        return 'C';
+    } else {
+        return 'D';
+    }
+}
+
+$(document).ready(function(){
+           
+  
+           //var a = document.getElementById("nama").value;
+         // let html = '';
+         // $('#inputTotal').empty();
+         // html =  ' <label for="inputTotal" class="form-label">Total</label>'+'<input type="text" class="form-control" id="inputTotal" name="inputTotal"  readonly>';
+         // $('#inputTotal').html(html);
+         var getTotal = $('#getTotal').val();
+         var getGrade = $('#getGrade').val();
+         
+         let html = '';
+             html += '<label for="inputTotal" class="form-label">Total</label>';
+             html += '<input type="text" class="form-control" id="inputTotal" name="total" value=' + getTotal + ' readonly>';
+         
+          $('#inputTotal').html(html);
+          let html2 = '';
+             html2 += '<label for="inputGrade" class="form-label">Grade</label>';
+              html2 += '<input type="text" class="form-control" id="inputGrade" name="grade" value=' + getGrade+ ' readonly>';
+         
+          $('#inputGrade').html(html2);
+
+         function updateTotal() {
+             var teamwork = $('#inputTeamwork').val();
+             var managementtime = $('#inputManageTime').val();
+             var respon = $('#inputResponsibility').val();
+         
+             console.log(teamwork);
+             console.log(managementtime);
+             hasil = total(respon, teamwork, managementtime);
+             console.log(hasil);
+         
+             let html = '';
+             html += '<label for="inputTotal" class="form-label">Total</label>';
+             html += '<input type="text" class="form-control" id="inputTotal" name="total" value=' + hasil + ' readonly>';
+         
+             $('#inputTotal').change().html(html);
+         }
+         
+          function updateGrade(){
+           var teamwork = $('#inputTeamwork').val();
+             var managementtime = $('#inputManageTime').val();
+             var respon = $('#inputResponsibility').val();
+         
+          
+             hasilGrade = grade(respon, teamwork, managementtime);
+             console.log(hasilGrade);
+             let html2 = '';
+              html2 += '<label for="inputGrade" class="form-label">Grade</label>';
+              html2 += '<input type="text" class="form-control" id="inputGrade" name="grade" value=' + hasilGrade+ ' readonly>';
+         
+              $('#inputGrade').change().html(html2);
+          }
+         
+         $('input[name=management_time], input[name=teamwork], input[name=responsibility]').change(function() {
+             updateTotal();
+             updateGrade();
+         });
+         
+         
+         });
+         
 </script>
 </html>
