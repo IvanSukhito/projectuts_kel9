@@ -14,8 +14,8 @@ if(isset($_POST['submit'])){
     $teamwork       = $_POST['teamwork'];
     $management_time= $_POST['management_time'];
 
-    $total = total($_POST['responsibility'], $_POST['teamwork'], $_POST['management_time']);
-    $grade = grade($_POST['responsibility'], $_POST['teamwork'], $_POST['management_time']);
+    $total = $_POST['total'];
+    $grade = $_POST['grade'];
     
     // Logic uplaod photo
     $dir = "admin/image/";
@@ -35,27 +35,4 @@ if(isset($_POST['submit'])){
 
 } else {
     die("Akses Dilarang");
-}
-
-// Total Function
-function total($responsibility, $teamwork, $management_time): float 
-{
-    $total = (30 / 100 * $responsibility) + (30 / 100 * $teamwork) + (40 / 100 * $management_time);
-    return $total;
-}
-
-// Grade Function
-function grade($responsibility, $teamwork, $management_time): string
-{
-    $total = total($responsibility, $teamwork, $management_time);
-
-    if ($total >= 80 ) {
-        return 'A';
-    } elseif ($total >= 60) {
-        return 'B';
-    } elseif ($total >= 40) {
-        return 'C';
-    } else {
-        return 'D';
-    }
 }

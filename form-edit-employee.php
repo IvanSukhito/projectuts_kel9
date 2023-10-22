@@ -21,6 +21,13 @@ $data = mysqli_fetch_array($query);
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" /> 
+
+    <!-- font link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -31,21 +38,38 @@ $data = mysqli_fetch_array($query);
 
 </head>
 <body>
+<div class="sidebar">
+      <div class="logo"></div>
+      <ul class="menu">
+        <li class="active1">
+          <a href="home.php">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="active1">
+          <a href="form-add-employee.php">
+            <i class="fas fa-database"></i>
+            <span>Performance</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   <div class="container card mt-5">
     <form action="logicupdate.php" method="post" class="row g-3" onSubmit="return simpan();" enctype="multipart/form-data">
-      <div class="col-md-6" >
+      <div class="col-md-6 mt-5" >
         <label for="inputtanggal_penelian" class="form-label">Tanggal Penilaian</label>
         <input type="date" name="tgl_penilaian" class="form-control" id="inputtgl_penilaian" required  value="<?php echo $data['tgl_penilaian'] ?>">
       </div>
-      <div class="col-md-6"> 
+      <div class="col-md-6 mt-5"> 
         <label for="inputNik" class="form-label">NIK</label>
         <input type="text" class="form-control" name="nik" id="inputNik" value="<?php echo $data['nik'] ?>" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-5">
         <label for="inputNama" class="form-label">Nama</label>
         <input type="text" class="form-control" id="nama" placeholder="Nama" name='nama' value="<?php echo $data['nama'] ?>" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-5">
         <label for="inputState" class="form-label">Status Kerja</label>
         <select id="status_kerja" class="form-select" name='status_kerja'>
           <option value="<?php echo $data['status_kerja'] ?>" selected><?php echo $data['status_kerja'] ?></option>
@@ -53,25 +77,29 @@ $data = mysqli_fetch_array($query);
           <option value="Tidak Tetap">Tidak Tetap</option>
         </select>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-5">
         <label for="inputCity" class="form-label">Posisi</label>
         <input type="text" class="form-control" id="inputPosisi"name='position' value="<?php echo $data['position'] ?>" required>
       </div>
-      <div class="col-md-6"> 
+      <div class="col-md-6 mt-5"> 
         <label for="inputNik" class="form-label">Responsibility</label required>
         <input type="text" class="form-control" name="responsibility" id="inputResponsibility" value="<?php echo $data['responsibility'] ?>" required>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 mt-5">
         <label for="inputZip" class="form-label">Teamwork</label>
         <input type="text" class="form-control" id="inputTeamwork" name='teamwork' value="<?php echo $data['teamwork'] ?>" required>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mt-5">
         <label for="inputZip" class="form-label">Management Time</label>
         <input type="text" class="form-control" id="inputManageTime" name='management_time' value="<?php echo $data['management_time'] ?>" required>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 mt-5" >
+    <label for="total" class="form-label">Total</label>
+    <input type="text" name="total" class="form-control bg-light" id="total" readonly>
+  </div>
+    <div class="col-md-2 mt-5">
         <label for="inputZip" class="form-label">Grade</label>
-        <input type="text" class="form-control" id="inputGrade" name='grade' readonly>
+        <input type="text" class="form-control bg-light" id="inputGrade" name='grade' readonly>
     </div>
 
     <div class="col-12" >
@@ -80,7 +108,8 @@ $data = mysqli_fetch_array($query);
     </div>
     <div class="col-12 mt-5 mb-5">
       <button type="submit" name ="submit"class="btn btn-primary" >Submit</button>
-        <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+        <a href="form-add-employee.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+      <button type="reset" class="btn btn-info" >Clear</button>
     </div>
   </form>
 </div>

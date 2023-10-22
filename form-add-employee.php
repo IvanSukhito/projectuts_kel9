@@ -31,13 +31,13 @@
 <div class="sidebar">
       <div class="logo"></div>
       <ul class="menu">
-        <li class="active">
+        <li class="active1">
           <a href="home.php">
             <i class="fas fa-home"></i>
             <span>Home</span>
           </a>
         </li>
-        <li class="active1">
+        <li class="active">
           <a href="form-add-employee.php">
             <i class="fas fa-database"></i>
             <span>Performance</span>
@@ -78,8 +78,8 @@
   </div>
 
   <div class="col-md-6">
-    <label for="inputCity" class="form-label">Posisi</label>
-    <input type="text" class="form-control" id="inputPosisi"name='position' placeholder="Posisi">
+    <label for="inputPosisi" class="form-label">Posisi</label>
+    <input type="text" class="form-control" value="hrd" id="inputPosisi"name='position' placeholder="Posisi">
   </div>
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">Responsibility</label required>
@@ -93,10 +93,13 @@
     <label for="inputZip" class="form-label">Management Time</label>
     <input type="text" class="form-control" id="inputManageTime" name='management_time' placeholder="Example : 80" required>
 </div>
-<div class="col-md-3">
+<div class="col-md-3" id="inputGrade">
   
-    <label for="inputZip" class="form-label">Grade</label>
-    <input type="text" class="form-control bg-light" id="inputGrade" name='grade' readonly>
+    
+</div>
+<div class="col-md-3" id="inputTotal">
+  
+   
 
 </div>
 
@@ -165,6 +168,11 @@
 
 </div>
 </body>
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+   
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 
 <script>
 function simpan(){
@@ -173,5 +181,76 @@ function simpan(){
     else 
     return false;
 }
+var x;
+var y;
+var z;
+function total(x, y , z)
+{
+  var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
+    return total;
+}
+
+function grade(x,y,z){
+    var grade = total(x,y,z);
+    if (grade >= 80 ) {
+        return 'A';
+    } else if (grade >= 60) {
+        return 'B';
+    } else if (grade >= 40) {
+        return 'C';
+    } else {
+        return 'D';
+    }
+}
+
+$(document).ready(function(){
+           
+  
+  //var a = document.getElementById("nama").value;
+// let html = '';
+// $('#inputTotal').empty();
+// html =  ' <label for="inputTotal" class="form-label">Total</label>'+'<input type="text" class="form-control" id="inputTotal" name="inputTotal"  readonly>';
+// $('#inputTotal').html(html);
+
+function updateTotal() {
+    var teamwork = $('#inputTeamwork').val();
+    var managementtime = $('#inputManageTime').val();
+    var respon = $('#inputResponsibility').val();
+
+    console.log(teamwork);
+    console.log(managementtime);
+    hasil = total(respon, teamwork, managementtime);
+    console.log(hasil);
+
+    let html = '';
+    html += '<label for="inputTotal" class="form-label">Total</label>';
+    html += '<input type="text" class="form-control" id="inputTotal" name="total" value=' + hasil + ' readonly>';
+
+    $('#inputTotal').empty().html(html);
+}
+
+ function updateGrade(){
+  var teamwork = $('#inputTeamwork').val();
+    var managementtime = $('#inputManageTime').val();
+    var respon = $('#inputResponsibility').val();
+
+ 
+    hasilGrade = grade(respon, teamwork, managementtime);
+    console.log(hasilGrade);
+    let html2 = '';
+     html2 += '<label for="inputGrade" class="form-label">Grade</label>';
+     html2 += '<input type="text" class="form-control" id="inputGrade" name="grade" value=' + hasilGrade+ ' readonly>';
+
+     $('#inputGrade').empty().html(html2);
+ }
+
+$('input[name=management_time], input[name=teamwork], input[name=responsibility]').change(function() {
+    updateTotal();
+    updateGrade();
+});
+
+
+});
+
 </script>
 </html>

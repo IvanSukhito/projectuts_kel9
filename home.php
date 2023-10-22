@@ -24,7 +24,7 @@
             <span>Home</span>
           </a>
         </li>
-        <li>
+        <li class="active1">
           <a href="form-add-employee.php">
             <i class="fas fa-database"></i>
             <span>Performance</span>
@@ -119,9 +119,9 @@
             </div>
             <span class="tetap">A<span class="titik1">: 
             <span>
-              <?php 
+            <?php 
                      include('koneksi.php');
-                      $query = "SELECT COUNT(*) AS Jumlah_Karyawan FROM performance WHERE grade = 'A' AND status_kerja = 'Tetap'";
+                      $query = "SELECT * FROM performance WHERE grade = 'A' AND status_kerja = 'Tetap'";
                       $resultQuery = $connection->query($query);
                       
                       if($resultQuery){
@@ -138,12 +138,56 @@
           </span>
             <span class="tetap">B<span class="titik1">:
             <span>
-                      <!-- PHP CODE -->
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'B' AND status_kerja = 'Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
               </span>
             </span>
           </span>
-            <span class="tetap">C<span class="titik1">:</span></span>
-            <span class="tetap">D<span class="titik1">:</span></span>
+            <span class="tetap">C<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'C' AND status_kerja = 'Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
+                     </span>
+            <span class="tetap">D<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'D' AND status_kerja = 'Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
+          </span>
+            
           </div>
 
           <div class="database--card">
@@ -158,10 +202,66 @@
                 </span>
               </div>
             </div>
-            <span class="tetap">A<span class="titik1">:</span></span>
-            <span class="tetap">B<span class="titik1">:</span></span>
-            <span class="tetap">C<span class="titik1">:</span></span>
-            <span class="tetap">D<span class="titik1">:</span></span>
+            <span class="tetap">A<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'A' AND status_kerja = 'Tidak Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?></span>
+            <span class="tetap">B<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'B' AND status_kerja = 'Tidak Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?></span>
+            <span class="tetap">C<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'C' AND status_kerja = 'Tidak Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?></span>
+            <span class="tetap">D<span class="titik1">:</span>
+            <?php 
+                     include('koneksi.php');
+                      $query = "SELECT * FROM performance WHERE grade = 'D' AND status_kerja = 'Tidak Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?></span>
           </div>
         </div>
       </div>
