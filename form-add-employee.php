@@ -57,8 +57,8 @@
   </div>
 
   <div class="col-md-6"> 
-    <label for="inputNik" class="form-label">Nik</label required>
-    <input type="text" class="form-control" name="nik" id="inputNik">
+    <label for="inputNik" class="form-label">NIK</label required>
+    <input type="text" class="form-control" name="nik" id="inputNik" placeholder="NIK">
   </div>
 
 
@@ -79,24 +79,24 @@
 
   <div class="col-md-6">
     <label for="inputCity" class="form-label">Posisi</label>
-    <input type="text" class="form-control" id="inputPosisi"name='position'>
+    <input type="text" class="form-control" id="inputPosisi"name='position' placeholder="Posisi">
   </div>
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">Responsibility</label required>
-    <input type="text" class="form-control" name="responsibility" id="inputResponsibility">
+    <input type="text" class="form-control" name="responsibility" id="inputResponsibility" placeholder="Example: 90">
   </div>
   <div class="col-md-3">
     <label for="inputZip" class="form-label">Teamwork</label>
-    <input type="text" class="form-control" id="inputTeamwork" name='teamwork'>
+    <input type="text" class="form-control" id="inputTeamwork" name='teamwork' placeholder="Example: 90" required>
 </div>
 <div class="col-md-3">
     <label for="inputZip" class="form-label">Management Time</label>
-    <input type="text" class="form-control" id="inputManageTime"name='management_time'>
+    <input type="text" class="form-control" id="inputManageTime" name='management_time' placeholder="Example : 80" required>
 </div>
 <div class="col-md-3">
   
     <label for="inputZip" class="form-label">Grade</label>
-    <input type="text" class="form-control" id="inputGrade" name='grade'>
+    <input type="text" class="form-control bg-light" id="inputGrade" name='grade' readonly>
 
 </div>
 
