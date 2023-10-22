@@ -97,9 +97,12 @@ $data = mysqli_fetch_assoc($query);
   </div>
 
 
-<div class="col-12 mt-5 mb-5">
-    <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
-</div>
+
+
+    <div class="col-12 mt-5 mb-5">
+        <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+    </div>
+
 
   </form>
 
