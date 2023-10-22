@@ -107,11 +107,41 @@
             <div class="card--header">
               <div class="amount">
                 <span class="title">Hasil Performance Karyawan Tetap</span>
-                <span class="current--date"><br>Tahun: 2023</span>
+                <span class="current--date"><br>Tahun: 
+                <span>
+                <?php 
+                    $currentYear = date("Y");
+                    echo $currentYear;
+                  ?>
+                </span>
+              </span>
               </div>
             </div>
-            <span class="tetap">A<span class="titik1">:</span></span>
-            <span class="tetap">B<span class="titik1">:</span></span>
+            <span class="tetap">A<span class="titik1">: 
+            <span>
+              <?php 
+                     include('koneksi.php');
+                      $query = "SELECT COUNT(*) AS Jumlah_Karyawan FROM performance WHERE grade = 'A' AND status_kerja = 'Tetap'";
+                      $resultQuery = $connection->query($query);
+                      
+                      if($resultQuery){
+                        $jumlahKaryawan = $resultQuery->num_rows;
+                        if($jumlahKaryawan > 0 ){
+                          echo $jumlahKaryawan;
+                        }else{
+                          echo "0";
+                        }
+                      }
+                     ?>
+              </span>
+            </span>
+          </span>
+            <span class="tetap">B<span class="titik1">:
+            <span>
+                      <!-- PHP CODE -->
+              </span>
+            </span>
+          </span>
             <span class="tetap">C<span class="titik1">:</span></span>
             <span class="tetap">D<span class="titik1">:</span></span>
           </div>
@@ -119,7 +149,7 @@
           <div class="database--card">
             <div class="card--header">
               <div class="amount">
-                <span class="title">Hasil Performance Karyawan Tidak Cukup </span>
+                <span class="title">Hasil Performance Karyawan Tidak Tetap </span>
                 <span class="current--date">Tahun: 
                 <?php 
                     $currentYear = date("Y");
@@ -136,7 +166,12 @@
         </div>
       </div>
       <div class="table--wrapper">
-        <h3 class="main--title">Karyawan Tetap dengan Performance C dan D 2023</h3>
+        <h3 class="main--title">Karyawan Tetap dengan Performance C dan D    
+           <?php 
+             $currentDate = date("Y");
+             echo $currentDate;
+            ?>
+        </h3>
         <div class="table--container">
             <table>
                 <thead>
@@ -152,7 +187,7 @@
                     <?php 
                       include('koneksi.php');
                       $no = 1;
-                      $query = mysqli_query($connection,"SELECT * FROM performance");
+                      $query = mysqli_query($connection,"SELECT * FROM performance WHERE (grade = 'C' OR grade = 'D') AND status_kerja = 'Tetap'");
                       while($row = mysqli_fetch_array($query)){
                   ?>
 
@@ -164,11 +199,7 @@
                       <td><?php echo $row['nik'] ?></td>
                       <td><?php echo $row['nama'] ?></td>
                       <td><?php echo $row['position'] ?></td>
-                      <!-- <td class="text-center">
-                        <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
-                        <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
-                      </td> -->
+       
                   </tr>
 
                 <?php } ?>
@@ -178,6 +209,50 @@
             </table>
         </div>
       </div>
+
+      <div class="table--wrapper">
+        <h3 class="main--title">Karyawan Tidak Tetap dengan Performance C dan D    
+           <?php 
+             $currentDate = date("Y");
+             echo $currentDate;
+            ?>
+        </h3>
+        <div class="table--container">
+            <table>
+                <thead>
+                    <tr>
+                      <th>No</th>
+                        <th>Foto</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Position</th>
+                    </tr>
+                    <tbody>
+                    <?php 
+                      include('koneksi.php');
+                      $no = 1;
+                      $query = mysqli_query($connection,"SELECT * FROM performance WHERE (grade = 'C' OR grade = 'D') AND status_kerja = 'Tidak Tetap'");
+                      while($row = mysqli_fetch_array($query)){
+                  ?>
+
+                  <tr>
+                      <td><?php echo $no++ ?></td>
+                      <td>
+                        <img src="admin/image/<?php echo $row['foto'] ?>" width="100px">
+                      </td>
+                      <td><?php echo $row['nik'] ?></td>
+                      <td><?php echo $row['nama'] ?></td>
+                      <td><?php echo $row['position'] ?></td>
+                  </tr>
+
+                <?php } ?>
+                </tbody>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+      </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

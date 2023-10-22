@@ -56,7 +56,7 @@ $data = mysqli_fetch_assoc($query);
 
   <div class="col-md-6">
     <label for="inputState" class="form-label">Status Kerja</label>
-    <select id="status_kerja" class="form-select" name='status_kerja'>
+    <select id="status_kerja" class="form-select bg-light" name='status_kerja'>
         <?php 
         if($data['status_kerja'] == 'Tetap'){
             echo "<option readonly>Tetap</option>";

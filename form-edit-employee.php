@@ -38,12 +38,12 @@ $data = mysqli_fetch_array($query);
         <input type="date" name="tgl_penilaian" class="form-control" id="inputtgl_penilaian" required  value="<?php echo $data['tgl_penilaian'] ?>">
       </div>
       <div class="col-md-6"> 
-        <label for="inputNik" class="form-label">Nik</label required>
-        <input type="text" class="form-control" name="nik" id="inputNik" value="<?php echo $data['nik'] ?>">
+        <label for="inputNik" class="form-label">NIK</label>
+        <input type="text" class="form-control" name="nik" id="inputNik" value="<?php echo $data['nik'] ?>" required>
       </div>
       <div class="col-md-6">
         <label for="inputNama" class="form-label">Nama</label>
-        <input type="text" class="form-control" id="nama" placeholder="Nama" name='nama' value="<?php echo $data['nama'] ?>">
+        <input type="text" class="form-control" id="nama" placeholder="Nama" name='nama' value="<?php echo $data['nama'] ?>" required>
       </div>
       <div class="col-md-6">
         <label for="inputState" class="form-label">Status Kerja</label>
@@ -55,23 +55,23 @@ $data = mysqli_fetch_array($query);
       </div>
       <div class="col-md-6">
         <label for="inputCity" class="form-label">Posisi</label>
-        <input type="text" class="form-control" id="inputPosisi"name='position' value="<?php echo $data['position'] ?>">
+        <input type="text" class="form-control" id="inputPosisi"name='position' value="<?php echo $data['position'] ?>" required>
       </div>
       <div class="col-md-6"> 
         <label for="inputNik" class="form-label">Responsibility</label required>
-        <input type="text" class="form-control" name="responsibility" id="inputResponsibility" value="<?php echo $data['responsibility'] ?>">
+        <input type="text" class="form-control" name="responsibility" id="inputResponsibility" value="<?php echo $data['responsibility'] ?>" required>
       </div>
       <div class="col-md-3">
         <label for="inputZip" class="form-label">Teamwork</label>
-        <input type="text" class="form-control" id="inputTeamwork" name='teamwork' value="<?php echo $data['teamwork'] ?>">
+        <input type="text" class="form-control" id="inputTeamwork" name='teamwork' value="<?php echo $data['teamwork'] ?>" required>
     </div>
     <div class="col-md-3">
         <label for="inputZip" class="form-label">Management Time</label>
-        <input type="text" class="form-control" id="inputManageTime" name='management_time' value="<?php echo $data['management_time'] ?>">
+        <input type="text" class="form-control" id="inputManageTime" name='management_time' value="<?php echo $data['management_time'] ?>" required>
     </div>
     <div class="col-md-3">
         <label for="inputZip" class="form-label">Grade</label>
-        <input type="text" class="form-control" id="inputGrade" name='grade'>
+        <input type="text" class="form-control" id="inputGrade" name='grade' readonly>
     </div>
 
     <div class="col-12" >
@@ -80,7 +80,7 @@ $data = mysqli_fetch_array($query);
     </div>
     <div class="col-12 mt-5 mb-5">
       <button type="submit" name ="submit"class="btn btn-primary" >Submit</button>
-        <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+        <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
     </div>
   </form>
 </div>
