@@ -88,7 +88,9 @@
 
   <div class="col-md-6">
     <label for="inputPosisi" class="form-label">Posisi</label>
+
     <input type="text" class="form-control" id="inputPosisi"name='position' placeholder="Posisi" required>
+
   </div>
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">Responsibility</label required>

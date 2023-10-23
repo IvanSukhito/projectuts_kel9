@@ -32,9 +32,11 @@ if(isset($_POST['submit'])){
     $sSQL   =" INSERT INTO `performance`(`nik`, `foto`, `nama`,`status_kerja`, `position`, `tgl_penilaian`,`responsibility`, `teamwork`, `management_time`,`total`, `grade`)
                VALUES ('$nik','$new_foto_name','$nama','$status_kerja','$position','$tgl_penilaian','$responsibility','$teamwork','$management_time','$total','$grade')";
     $result = mysqli_query($connection, $sSQL);
+
     if ($result) 
     header("location:form-add-employee.php");
     $_SESSION["suksesTambah"] = 'Data Berhasil Ditambahkan';
+
 
 } else {
     die("Akses Dilarang");

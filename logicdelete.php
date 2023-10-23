@@ -12,7 +12,6 @@ if(isset($_GET['nik'])) {
   if ($result) 
   header("location:form-add-employee.php");
   $_SESSION["sukses"] = 'Data Berhasil Dihapus';
-  
 } else {
   die("Akses Dilarang");
 }
