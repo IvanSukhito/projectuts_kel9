@@ -107,7 +107,7 @@ $data = mysqli_fetch_array($query);
     <div class="col-12 mt-5" >
     
     <label for="Foto" class="form-label">Old Foto</label>
-    <input type="text" name="foto_old" class="form-control" id="foto_old" value="<?php echo $data['foto'] ?>">
+    <input type="text" name="foto_old" class="form-control" id="foto_old" value="<?php echo $data['foto'] ?>" readonly>
     
     <img src="admin/image/<?php echo $data['foto'] ?>" class="form-control" style="width:25%;"  >
   </div>
