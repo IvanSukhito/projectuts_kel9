@@ -13,6 +13,9 @@
     />
     <link rel="stylesheet" href="style.css" /> 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
     <!-- font link -->
     <link
       rel="stylesheet"
@@ -24,10 +27,16 @@
       crossorigin="anonymous"
     </script>
 
+    
       <title>Form Add Karyawan</title>
 
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+<?php session_start(); ?>
 <div class="sidebar">
       <div class="logo"></div>
       <ul class="menu">
@@ -47,7 +56,7 @@
     </div>
 
     <div class="container card mt-5">
-<form action="logicadd.php" method="post" class="row g-3" onSubmit="return simpan();" enctype="multipart/form-data">
+<form action="logicadd.php" method="post" class="row g-3" enctype="multipart/form-data">
 
 
   <div class="col-md-6" >
@@ -58,20 +67,20 @@
 
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">NIK</label required>
-    <input type="text" class="form-control" name="nik" id="inputNik" placeholder="NIK">
+    <input type="text" class="form-control" name="nik" id="inputNik" placeholder="NIK" required>
   </div>
 
 
   <div class="col-md-6">
     <label for="inputNama" class="form-label">Nama</label>
-    <input type="text" class="form-control" id="nama" placeholder="Nama" name='nama'>
+    <input type="text" class="form-control" id="nama" placeholder="Nama" name='nama' required>
   </div>
 
 
   <div class="col-md-6">
     <label for="inputState" class="form-label">Status Kerja</label>
-    <select id="status_kerja" class="form-select" name='status_kerja'>
-      <option selected>Pilih...</option>
+    <select id="status_kerja" class="form-select" name='status_kerja' required>
+      <option selected disabled>Pilih Status Kerja...</option>
       <option value="Tetap">Tetap</option>
       <option value="Tidak Tetap">Tidak Tetap</option>
     </select>
@@ -79,21 +88,21 @@
 
   <div class="col-md-6">
     <label for="inputPosisi" class="form-label">Posisi</label>
-    <input type="text" class="form-control" value="hrd" id="inputPosisi"name='position' placeholder="Posisi">
+    <input type="text" class="form-control" id="inputPosisi"name='position' placeholder="Posisi" required>
   </div>
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">Responsibility</label required>
-    <input type="text" class="form-control" name="responsibility" id="inputResponsibility" placeholder="Example: 90">
+    <input type="text" class="form-control" name="responsibility" id="inputResponsibility" placeholder="Example: 90" required> 
   </div>
   <div class="col-md-3">
     <label for="inputZip" class="form-label">Teamwork</label>
     <input type="text" class="form-control" id="inputTeamwork" name='teamwork' placeholder="Example: 90" required>
-</div>
-<div class="col-md-3">
-    <label for="inputZip" class="form-label">Management Time</label>
-    <input type="text" class="form-control" id="inputManageTime" name='management_time' placeholder="Example : 80" required>
-</div>
-<div class="col-md-3" id="inputGrade">
+  </div>
+  <div class="col-md-3">
+      <label for="inputZip" class="form-label">Management Time</label>
+      <input type="text" class="form-control" id="inputManageTime" name='management_time' placeholder="Example : 80" required>
+  </div>
+  <div class="col-md-3" id="inputGrade">
   
     
 </div>
@@ -112,7 +121,7 @@
 
 <div class="col-12 mt-5 mb-5">
   
-   <button type="submit" name ="submit"class="btn btn-primary" >Submit</button>
+   <button type="submit" name ="submit" class="btn btn-primary" >Submit</button>
     <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
     <button type="reset" class="btn btn-info" >Clear</button>
 </div>
@@ -125,10 +134,10 @@
                         <th>Foto</th>
                         <th>NIK</th>
                         <th>Nama</th>
-                        <!-- <th>Status Kerja</th> -->
+                        <th>Status Kerja</th>
                         <th>Position</th>
-                        <!-- <th>Total</th>
-                        <th>Grade</th> -->
+                        <th>Total</th>
+                        <th>Grade</th>
                         <th>Aksi</th>
                     </tr>
                     <tbody>
@@ -146,14 +155,14 @@
                       </td>
                       <td><?php echo $row['nik'] ?></td>
                       <td><?php echo $row['nama'] ?></td>
-                      <!-- <td>Tetap<td> -->
+                      <td><?php echo $row['status_kerja'] ?></td>
                       <td><?php echo $row['position'] ?></td>
-                      <!-- <td>Total</td>
-                      <td>Grade</td> -->
+                      <td><?php echo $row['total'];?></td>
+                      <td><?php echo $row['grade'];?></td>
                       <td class="text-center">
                         <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
                         <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>" onClick="return hapus();" class="btn btn-sm btn-danger">DELETE</a>
+                        <a href="logicdelete.php?nik=<?php echo $row['nik'] ?>"  class="btn btn-sm btn-danger alert_hapus">DELETE</a>
                       </td>
                   </tr>
 
@@ -164,44 +173,109 @@
             </table>
         </div>
 
-
-
 </div>
+
 </body>
 <!-- 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
    
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+
+
+<!-- Session Edit  -->
+<?php if(@$_SESSION['suksesEdit']){ ?>
+            <script>
+                Swal.fire({            
+                    icon: 'success',                   
+                    title: 'Sukses',    
+                    text: 'Data Berhasil Diedit',                        
+                    timer: 1500,                                
+                    showConfirmButton: false
+                })
+            </script>
+
+<?php unset($_SESSION['suksesEdit']); } ?>
+
+<!-- Session Add  -->
+<?php if(@$_SESSION['suksesTambah']){ ?>
+            <script>
+                Swal.fire({            
+                    icon: 'success',                   
+                    title: 'Sukses',    
+                    text: 'Data Berhasil Ditambahkan',                        
+                    timer: 1500,                                
+                    showConfirmButton: false
+                })
+            </script>
+
+<?php unset($_SESSION['suksesTambah']); } ?>
+
+
+
+
+<!-- Session Delete  -->
+<?php if(@$_SESSION['sukses']){ ?>
+            <script>
+                Swal.fire({            
+                    icon: 'success',                   
+                    title: 'Sukses',    
+                    text: 'Data Berhasil Dihapus',                        
+                    timer: 1500,                                
+                    showConfirmButton: false
+                })
+            </script>
+<?php unset($_SESSION['sukses']); } ?>
+
+
+  <!-- Sweet Alert  Delete -->
+<script>
+
+      $('.alert_hapus').on('click',function(){
+                var getLink = $(this).attr('href');
+                Swal.fire({
+                    title: "Yakin hapus data?",            
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Ya',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: "Batal"
+                
+                }).then(result => {
+                    if(result.isConfirmed){
+                        window.location.href = getLink
+                    }
+                })
+                return false;
+            });
+     
+</script>
 
 <script>
-function simpan(){
-    if(confirm('Are you sure want to save?'))
-    return true;
-    else 
-    return false;
-}
-var x;
-var y;
-var z;
-function total(x, y , z)
-{
-  var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
-    return total;
-}
 
-function grade(x,y,z){
-    var grade = total(x,y,z);
-    if (grade >= 80 ) {
-        return 'A';
-    } else if (grade >= 60) {
-        return 'B';
-    } else if (grade >= 40) {
-        return 'C';
-    } else {
-        return 'D';
-    }
-}
+  var x;
+  var y;
+  var z;
+  function total(x, y , z)
+  {
+    var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
+      return total;
+  }
+
+  function grade(x,y,z){
+      var grade = total(x,y,z);
+      if (grade >= 80 ) {
+          return 'A';
+      } else if (grade >= 60) {
+          return 'B';
+      } else if (grade >= 40) {
+          return 'C';
+      } else {
+          return 'D';
+      }
+  }
 
 $(document).ready(function(){
            

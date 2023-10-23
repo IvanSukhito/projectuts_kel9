@@ -34,10 +34,15 @@ $data = mysqli_fetch_array($query);
       crossorigin="anonymous"
     </script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+
       <title>Form Edit Karyawan</title>
 
 </head>
 <body>
+<?php session_start(); ?>
 <div class="sidebar">
       <div class="logo"></div>
       <ul class="menu">
@@ -56,7 +61,7 @@ $data = mysqli_fetch_array($query);
       </ul>
     </div>
   <div class="container card mt-5">
-    <form action="logicupdate.php" method="post" class="row g-3" onSubmit="return simpan();" enctype="multipart/form-data">
+    <form action="logicupdate.php" method="post" class="row g-3" enctype="multipart/form-data">
       <div class="col-md-6 mt-5" >
         <label for="inputtanggal_penelian" class="form-label">Tanggal Penilaian</label>
         <input type="date" name="tgl_penilaian" class="form-control" id="inputtgl_penilaian" required  value="<?php echo $data['tgl_penilaian'] ?>">
@@ -105,7 +110,7 @@ $data = mysqli_fetch_array($query);
       <input type="file" name="foto" class="form-control" id="inputtgl_penilaian">
     </div>
     <div class="col-12 mt-5 mb-5">
-      <button type="submit" name ="submit"class="btn btn-primary" >Submit</button>
+      <button type="submit" name ="submit" class="btn btn-primary">Submit</button>
         <a href="form-add-employee.php"><button type="button" class="btn btn-danger">Cancel</button></a>
       <button type="reset" class="btn btn-info" >Clear</button>
     </div>
@@ -114,13 +119,18 @@ $data = mysqli_fetch_array($query);
 </body>
 
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+
+
+
+
 <script>
-function simpan(){
-    if(confirm('Are you sure want to update?'))
-    return true;
-    else 
-    return false;
-}
+// function simpan(){
+//     if(confirm('Are you sure want to update?'))
+//     return true;
+//     else 
+//     return false;
+// }
 function total(x, y , z)
 {
   var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);

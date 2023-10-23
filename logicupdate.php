@@ -2,6 +2,8 @@
 
 include 'koneksi.php';
 
+
+session_start();
 // Create Logic
 if(isset($_POST['submit'])){
     $nik            = trim($_POST['nik']);
@@ -35,7 +37,9 @@ if(isset($_POST['submit'])){
                SET nik=$nik, nama='$nama', foto='$new_foto_name', status_kerja='$status_kerja', position='$position', tgl_penilaian='$tgl_penilaian', responsibility='$responsibility', teamwork='$teamwork', management_time='$management_time', total='$total', grade='$grade'
                WHERE nik='$nik'";
     $result = mysqli_query($connection, $sSQL);
-    if ($result) header("location:home.php");
+    if ($result) 
+    $_SESSION["suksesEdit"] = 'Data Berhasil Diedit';
+    header("location:form-add-employee.php");
 
 } else {
     die("Akses Dilarang");

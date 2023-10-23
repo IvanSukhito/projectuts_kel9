@@ -362,13 +362,6 @@
           $('#myTable').DataTable();
       } );
     </script>
-    <script>
-      function hapus(){
-          if(confirm('Are you sure want to delete?'))
-          return true;
-          else 
-          return false;
-      }
-    </script>
+
   </body>
 </html>
