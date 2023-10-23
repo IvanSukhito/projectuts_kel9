@@ -79,7 +79,7 @@
 
   <div class="col-md-6">
     <label for="inputPosisi" class="form-label">Posisi</label>
-    <input type="text" class="form-control" value="hrd" id="inputPosisi"name='position' placeholder="Posisi">
+    <input type="text" class="form-control" id="inputPosisi"name='position' placeholder="Posisi">
   </div>
   <div class="col-md-6"> 
     <label for="inputNik" class="form-label">Responsibility</label required>
@@ -125,10 +125,10 @@
                         <th>Foto</th>
                         <th>NIK</th>
                         <th>Nama</th>
-                        <!-- <th>Status Kerja</th> -->
+                        <th>Status Kerja</th>
                         <th>Position</th>
-                        <!-- <th>Total</th>
-                        <th>Grade</th> -->
+                        <th>Total</th>
+                        <th>Grade</th>
                         <th>Aksi</th>
                     </tr>
                     <tbody>
@@ -146,10 +146,10 @@
                       </td>
                       <td><?php echo $row['nik'] ?></td>
                       <td><?php echo $row['nama'] ?></td>
-                      <!-- <td>Tetap<td> -->
+                      <td><?php echo $row['status_kerja'] ?></td>
                       <td><?php echo $row['position'] ?></td>
-                      <!-- <td>Total</td>
-                      <td>Grade</td> -->
+                      <td><?php echo $row['total'];?></td>
+                      <td><?php echo $row['grade'];?></td>
                       <td class="text-center">
                         <a href="form-detail-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-info">VIEW</a>
                         <a href="form-edit-employee.php?nik=<?php echo $row['nik'] ?>" class="btn btn-sm btn-primary">EDIT</a>
@@ -175,33 +175,40 @@
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
 
 <script>
-function simpan(){
-    if(confirm('Are you sure want to save?'))
-    return true;
-    else 
-    return false;
-}
-var x;
-var y;
-var z;
-function total(x, y , z)
-{
-  var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
-    return total;
-}
 
-function grade(x,y,z){
-    var grade = total(x,y,z);
-    if (grade >= 80 ) {
-        return 'A';
-    } else if (grade >= 60) {
-        return 'B';
-    } else if (grade >= 40) {
-        return 'C';
-    } else {
-        return 'D';
+    function hapus(){
+      if(confirm('Are you sure want to delete?'))
+      return true;
+      else 
+      return false;
     }
+    function simpan(){
+      if(confirm('Are you sure want to save?'))
+      return true;
+      else 
+      return false;
 }
+  var x;
+  var y;
+  var z;
+  function total(x, y , z)
+  {
+    var total = (30 / 100 * x) + (30 / 100 * y) + (40 / 100 * z);
+      return total;
+  }
+
+  function grade(x,y,z){
+      var grade = total(x,y,z);
+      if (grade >= 80 ) {
+          return 'A';
+      } else if (grade >= 60) {
+          return 'B';
+      } else if (grade >= 40) {
+          return 'C';
+      } else {
+          return 'D';
+      }
+  }
 
 $(document).ready(function(){
            
